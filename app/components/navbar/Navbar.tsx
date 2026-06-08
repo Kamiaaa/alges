@@ -125,20 +125,23 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
-          {/* Logo - Left aligned */}
+          {/* Logo - Left aligned - Responsive sizing for mobile */}
           <div className="flex items-center">
             <Link
               href="/"
               className="flex items-center space-x-2 group"
               onClick={closeAllMenus}
             >
-              <div className="relative w-37.5 h-18.5">
+              {/* Responsive logo container - smaller on mobile, larger on desktop */}
+              <div className="relative w-28 h-14 sm:w-32 sm:h-16 md:w-36 md:h-18 lg:w-40 lg:h-20">
                 <Image
                   src="/img/logo.png"
                   alt="logo"
                   fill
                   loading="eager"
                   className="object-contain"
+                  sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, (max-width: 1024px) 144px, 160px"
+                  priority
                 />
               </div>
             </Link>
@@ -259,14 +262,26 @@ const Navbar = () => {
             ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
           `}
         >
-          {/* Menu Header with Close Button */}
+          {/* Menu Header with Logo and Close Button */}
           <div className="flex items-center justify-between p-4 border-b border-slate-700">
-            <div className="flex items-center space-x-2">
-              <Heart className="h-7 w-7 text-green-500" />
-              <span className="text-white font-bold text-lg">
-                Islamic<span className="text-green-500">Center</span>
-              </span>
-            </div>
+            {/* Logo in mobile menu header */}
+            <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center space-x-2 group"
+            >
+              <div className="relative w-32 h-16">
+                <Image
+                  src="/img/logo.png"
+                  alt="logo"
+                  fill
+                  loading="eager"
+                  className="object-contain"
+                  sizes="128px"
+                  priority
+                />
+              </div>
+            </Link>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-gray-400 hover:text-white transition-colors p-1 rounded-lg hover:bg-white/10"
