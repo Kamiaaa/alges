@@ -23,7 +23,7 @@ const IslamicFeatures = () => {
     return (
         <section
             ref={containerRef}
-            className="relative w-full h-auto min-h-250 overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat py-16"
+            className="relative w-full h-auto min-h-600 overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat py-16"
             style={{ backgroundImage: "url('/img/slide-01.jpg')" }}
         >
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-8 lg:px-16 space-y-8">
